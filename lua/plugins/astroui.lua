@@ -8,6 +8,9 @@ return {
   ---@type AstroUIOpts
   opts = {
     colorscheme = "ayu",
+    icons = {
+      SSH = "󰣀",
+    },
     text_icons = {
       ActiveLSP = "LSP:",
       ArrowLeft = "<",

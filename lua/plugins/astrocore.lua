@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -60,6 +58,45 @@ return {
           desc = "Close buffer from tabline",
         },
 
+        -- FloaTerm
+
+        ["<F8>"] = {
+          function() vim.cmd("FloatermToggle") end,
+          desc = "Toggle FloaTerm"
+        },
+
+        ["<Leader>tn"] = {
+          function() vim.cmd("FloatermNew") end,
+          desc = "New FloaTerm Window"
+        },
+
+        ["<Leader>tp"] = {
+          function() vim.cmd("FloatermPrev") end,
+          desc = "Previous FloaTerm Window"
+        },
+
+        ["<Leader>tc"] = {
+          function() vim.cmd("FloatermKill") end,
+          desc = "Close FloaTerm Window"
+        },
+
+        -- Find Live Grep
+        ["<Leader>fl"] = {
+          function() vim.cmd("Telescope live_grep") end,
+          desc = "Find: Live Grep"
+        },
+
+        -- Remote Group
+        ["<Leader>r"] = {
+          desc = require("astroui").get_icon("SSH", 1, true) .. " Remote",
+        },
+        -- RemoteStart
+        ["<Leader>rs"] = {
+          function() vim.cmd("RemoteStart") end,
+          desc = "RemoteStart"
+        },
+
+
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         -- ["<Leader>b"] = { desc = "Buffers" },
@@ -67,6 +104,19 @@ return {
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
       },
+
+      -- Terminal mappings
+      t = {
+         ["<Esc>"] = {
+          function() vim.api.nvim_input('<C-\\><C-n>') end,
+          desc = "Go to Normal Mode"
+        },
+         ["<F8>"] = {
+          function() vim.cmd("FloatermToggle") end,
+          desc = "Toggle FloaTerm"
+        }
+      },
+
     },
   },
 }
